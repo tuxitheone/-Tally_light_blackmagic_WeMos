@@ -2,20 +2,23 @@
 
 Orginal Thingiverse: <br>
 	https://www.thingiverse.com/thing:4738103
-<br>
+<br><br>
+
 Remake Thingiverse: <br>
 	https://
-<br>
+<br><br>
+
 I have made a convertion from ESP32 to WeMos D1. <br>
 I´m stile working on the code, but for now it´s working. <br>
 
-#You will need:
+# You will need:
+<br>
 1 WeMos D1 <br>
 1 Red led 5mm <br>
 1 Green led 5mm <br>
 2 200Ohm resister <br>
 
-#Schematic
+# Schematic
 <br>
 	![alt text](https://github.com/tuxitheone/-Tally_light_blackmagic_WeMos/blob/main/schematic.JPG)
 
