@@ -16,4 +16,4 @@ I´m stile working on the code, but for now it´s working. <br>
 2 200Ohm resister <br>
 
 #Schematic
-
+https://github.com/tuxitheone/-Tally_light_blackmagic_WeMos/blob/main/schematic.JPG
