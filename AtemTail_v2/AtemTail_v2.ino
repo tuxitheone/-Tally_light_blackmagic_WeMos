@@ -27,18 +27,18 @@ ATEMstd AtemSwitcher;
 #define WLAN_SSID       "atem"
 #define WLAN_PASS       "tuxiatem"
 
-String newHostname = "CamTally_4";
+char newHostname[12];
 
 // LED PIN DEFINE
 #define LED_BUILTIN  D4
 #define ledPin1 D1
 #define ledPin2 D2
 
-int cameraNumber = 4;
+//CAMARA DEFINE
+#define ABIT0        D5       // Bit 0 of ID
+#define ABIT1        D6       // Bit 1 of ID
 
-//int LED_BUILTIN = 2;
-//int ledPin1 = 4;
-//int ledPin2 = 5;
+int8_t cameraNumber = 4;
 
 int PreviewTallyPrevious = 1;
 int ProgramTallyPrevious = 1;
@@ -47,22 +47,34 @@ void setup() {
 
   Serial.begin(9600);
   WiFi.mode(WIFI_STA);
-  
+
+  // Set up address pins
+  pinMode( ABIT0, INPUT_PULLUP );    // Has a value of 1
+  pinMode( ABIT1, INPUT_PULLUP );    // Has a value of 2
+
+
+  cameraNumber = 0;
+  if (digitalRead( ABIT0 )) cameraNumber = 1;
+  if (digitalRead( ABIT1 )) cameraNumber += 2;
+  cameraNumber +=  1;
+
+  sprintf(&newHostname[0], "CamTally_%d\n", cameraNumber);
+
   pinMode(ledPin1, OUTPUT);  // LED: 1 is on Program (Tally)
   pinMode(ledPin2, OUTPUT); // LED: 2 is on Preview (Tally)
   pinMode(LED_BUILTIN, OUTPUT); // LED: Status online
-  
-    
+
+
   Serial.println(); Serial.println(); // Connect to WiFi access point.
   delay(10);
   Serial.print(F("Connecting to "));
   Serial.println(WLAN_SSID);
 
-  WiFi.hostname(newHostname.c_str()); //Set new hostname
+  WiFi.hostname(newHostname); //Set new hostname
   Serial.printf("New hostname: %s\n", WiFi.hostname().c_str()); //Get Current Hostname
 
   WiFi.begin(WLAN_SSID, WLAN_PASS);
-   while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(F("."));
   }
@@ -73,7 +85,7 @@ void setup() {
   Serial.println(WiFi.localIP());
   Serial.print("RRSI: ");
   Serial.println(WiFi.RSSI());
-  
+
   digitalWrite(LED_BUILTIN, LOW); // ON
   digitalWrite(ledPin1, HIGH); // off
   digitalWrite(ledPin2, HIGH); // off
@@ -95,13 +107,13 @@ void loop() {
   if ((ProgramTallyPrevious != ProgramTally) || (PreviewTallyPrevious != PreviewTally)) { // changed?
 
     if ((ProgramTally && !PreviewTally) || (ProgramTally && PreviewTally) ) { // only program, or program AND preview
-        digitalWrite(ledPin1, HIGH);
-        digitalWrite(ledPin2, LOW);
+      digitalWrite(ledPin1, HIGH);
+      digitalWrite(ledPin2, LOW);
     } else if (PreviewTally && !ProgramTally) { // only preview
-        digitalWrite(ledPin2, LOW);
+      digitalWrite(ledPin2, LOW);
     } else if (!PreviewTally || !ProgramTally) { // neither
-        digitalWrite(ledPin1, LOW);
-        digitalWrite(ledPin2, HIGH);
+      digitalWrite(ledPin1, LOW);
+      digitalWrite(ledPin2, HIGH);
     }
 
   }
