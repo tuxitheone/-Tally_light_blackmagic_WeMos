@@ -25,7 +25,7 @@ ATEMstd AtemSwitcher;
 
 // WiFi parameters
 #define WLAN_SSID       "atem"
-#define WLAN_PASS       "tuxiatem"
+#define WLAN_PASS       "atematem"
 
 char newHostname[12];
 
