@@ -13,6 +13,7 @@ I´m stile working on the code, but for now it´s working. <br>
 1 Red led 5mm <br>
 1 Green led 5mm <br>
 2 200Ohm resister <br>
+1 DIP_Switch x2 <br>
 
 # Schematic
 
