@@ -20,5 +20,5 @@ I´m stile working on the code, but for now it´s working. <br>
 
 # Schematic
 <br>
-	![alt text](https://github.com/tuxitheone/-Tally_light_blackmagic_WeMos/blob/main/schematic.JPG)
+![alt text](https://github.com/tuxitheone/-Tally_light_blackmagic_WeMos/blob/main/schematic.JPG)
 
