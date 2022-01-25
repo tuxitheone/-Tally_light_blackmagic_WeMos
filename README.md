@@ -4,6 +4,10 @@ Orginal Thingiverse: <br>
 	https://www.thingiverse.com/thing:4738103
 <br><br>
 
+My Thingiverse: <br>
+	https://www.thingiverse.com/thing:5216420
+<br><br>
+
 I have made a convertion from ESP32 to WeMos D1. <br>
 I´m stile working on the code, but for now it´s working. <br>
 
