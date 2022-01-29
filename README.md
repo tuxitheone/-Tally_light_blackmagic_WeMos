@@ -8,6 +8,10 @@ My Thingiverse: <br>
 	https://www.thingiverse.com/thing:5216420
 <br><br>
 
+Atem Switcher Protocol
+	https://www.skaarhoj.com/discover/blackmagic-atem-switcher-protocol
+<br><br>
+
 I have made a convertion from ESP32 to WeMos D1. <br>
 I´m stile working on the code, but for now it´s working. <br>
 
